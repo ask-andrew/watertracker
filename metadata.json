@@ -1,0 +1,5 @@
+{
+  "name": "Garden Watering Tracker",
+  "description": "A web app to track local weather, view historical temperature and precipitation data, and get personalized garden watering recommendations based on your zip code.",
+  "requestFramePermissions": []
+}
