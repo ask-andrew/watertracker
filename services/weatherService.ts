@@ -37,9 +37,16 @@ export const fetchWeatherData = async (zipCode: string): Promise<WeatherServiceR
       const data = await response.json();
 
       if (!response.ok) {
-        // Handle API errors (e.g., invalid key, no data for location)
-        const errorMessage = data.error?.message || `API error: ${response.statusText}`;
-        throw new Error(`Failed to fetch data for ${zipCode} on ${formattedDate}: ${errorMessage}`);
+        // Enhanced error handling for API responses
+        let detailedMessage = `API error (${response.status})`;
+        if (data && data.error && data.error.message) {
+          detailedMessage = data.error.message;
+        } else {
+          detailedMessage = `Failed to fetch data: ${response.statusText || 'Unknown API error'}`;
+        }
+        // Add context about the specific date failing, but the core message is from the API
+        console.error(`API Error for ${zipCode} on ${formattedDate}: ${detailedMessage}`, data);
+        throw new Error(detailedMessage); // This error will be more user-friendly
       }
 
       if (data && data.forecast && data.forecast.forecastday && data.forecast.forecastday.length > 0) {
