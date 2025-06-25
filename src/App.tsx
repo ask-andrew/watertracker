@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import ZipCodeInput from './components/ZipCodeInput';
-import WeatherDisplay from './components/WeatherDisplay';
-import WateringLog from './components/WateringLog';
-import { fetchWeatherData } from './services/weatherService';
+import ZipCodeInput from '../components/ZipCodeInput';
+import WeatherDisplay from '../components/WeatherDisplay';
+import WateringLog from '../components/WateringLog';
+import { fetchWeatherData } from '../services/weatherService';
 import { DailyWeather, WateringEvent, TemperatureUnit, WeatherServiceResponse, WateringUnit } from './types';
 import { LOCAL_STORAGE_ZIP_KEY, LOCAL_STORAGE_LOGS_KEY, LOCAL_STORAGE_UNIT_KEY } from './constants';
 

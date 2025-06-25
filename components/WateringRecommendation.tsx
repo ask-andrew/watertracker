@@ -1,6 +1,6 @@
 import React from 'react';
-import { DailyWeather, RecommendationLogic } from '../types';
-import { PRECIPITATION_THRESHOLD_MM_48H, RECOMMENDATION_MESSAGES, MM_TO_INCHES } from '../constants';
+import { DailyWeather, RecommendationLogic } from '../src/types';
+import { PRECIPITATION_THRESHOLD_MM_48H, RECOMMENDATION_MESSAGES, MM_TO_INCHES } from '../src/constants';
 import WateringCanIcon from './icons/WateringCanIcon';
 import SunIcon from './icons/SunIcon'; // For Monitor
 import RainIcon from './icons/RainIcon'; // For No Water

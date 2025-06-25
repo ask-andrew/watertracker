@@ -1,5 +1,5 @@
-import { DailyWeather, WeatherServiceResponse } from '../types';
-import { DAYS_OF_DATA, WEATHER_API_KEY, WEATHER_API_BASE_URL } from '../constants';
+import { DailyWeather, WeatherServiceResponse } from '../src/types';
+import { DAYS_OF_DATA, WEATHER_API_KEY, WEATHER_API_BASE_URL } from '../src/constants';
 
 // Helper to get date string YYYY-MM-DD
 const formatDate = (date: Date): string => {
@@ -58,6 +58,9 @@ export const fetchWeatherData = async (zipCode: string): Promise<WeatherServiceR
         const dayData = data.forecast.forecastday[0].day;
         const astroData = data.forecast.forecastday[0].astro; // For sunrise/sunset to calculate sunlight hours
 
+        // Log astroData and calculated sunlightHours for debugging
+        console.log(`Date: ${formattedDate}, Astro Data:`, astroData);
+
         const highTempF = dayData.maxtemp_f;
         const lowTempF = dayData.mintemp_f;
         const totalPrecipInches = dayData.totalprecip_in;
@@ -70,9 +73,11 @@ export const fetchWeatherData = async (zipCode: string): Promise<WeatherServiceR
             const diffMs = sunsetTime.getTime() - sunriseTime.getTime();
             sunlightHours = parseFloat((diffMs / (1000 * 60 * 60)).toFixed(1)); // Convert milliseconds to hours
             if (isNaN(sunlightHours) || sunlightHours < 0) sunlightHours = 0; // Fallback
+            console.log(`Calculated sunlightHours: ${sunlightHours}`);
         } else {
             // Fallback if astro data is missing or invalid, provide a plausible default
             sunlightHours = parseFloat((8 + Math.random() * 4).toFixed(1)); // Between 8 and 12 hours
+            console.log(`Fallback sunlightHours: ${sunlightHours}`);
         }
 
         weatherData.push({

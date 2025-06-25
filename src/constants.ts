@@ -10,7 +10,7 @@ export const MM_TO_INCHES = 0.0393701;
 
 // Weather API Constants
 export const WEATHER_API_KEY = "a43eade663f246439b1153041252905"; // NOTE: In a production app, this should be loaded from an environment variable for security.
-export const WEATHER_API_BASE_URL = "http://api.weatherapi.com/v1";
+export const WEATHER_API_BASE_URL = 'https://api.weatherapi.com/v1';
 
 export const RECOMMENDATION_MESSAGES: Record<RecommendationLogic, { text: string; color: string; suggestion: string }> = {
   [RecommendationLogic.WATER_NOW]: {

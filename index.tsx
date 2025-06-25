@@ -1,7 +1,8 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
+import App from './src/App'; // Path updated after moving App.tsx
+import './src/index.css'; // Import Tailwind CSS
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {

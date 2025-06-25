@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { FormattedChartDataPoint } from '../types';
+import { FormattedChartDataPoint } from '../src/types';
 import RainIcon from './icons/RainIcon';
 
 interface PrecipitationChartProps {
@@ -23,7 +22,7 @@ const PrecipitationChart: React.FC<PrecipitationChartProps> = ({ data }) => {
       <ResponsiveContainer width="100%" height={300}>
         <BarChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
-          <XAxis dataKey="name" stroke="#4b5563" />
+          <XAxis dataKey="name" stroke="#4b5563" interval="preserveStartEnd" />
           <YAxis 
             label={{ value: yAxisLabel, angle: -90, position: 'insideLeft', fill: '#4b5563' }} 
             stroke="#4b5563"

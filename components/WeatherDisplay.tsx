@@ -1,10 +1,10 @@
 import React from 'react';
-import { DailyWeather, FormattedChartDataPoint, TemperatureUnit, WateringEvent } from '../types';
+import { DailyWeather, FormattedChartDataPoint, TemperatureUnit, WateringEvent } from '../src/types';
 import WateringRecommendation from './WateringRecommendation';
 import CombinedWeatherChart from './CombinedWeatherChart';
 import ThermometerIcon from './icons/ThermometerIcon';
 import SunlightDurationIcon from './icons/SunlightDurationIcon';
-import { MM_TO_INCHES } from '../constants';
+import { MM_TO_INCHES } from '../src/constants';
 
 interface WeatherDisplayProps {
   weatherData: DailyWeather[] | null;

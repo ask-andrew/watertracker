@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { WateringEvent, WateringUnit } from '../types';
+import { WateringEvent, WateringUnit } from '../src/types';
 import WateringCanIcon from './icons/WateringCanIcon';
 
 interface WateringLogProps {

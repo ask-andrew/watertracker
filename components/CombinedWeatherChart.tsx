@@ -11,7 +11,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from 'recharts';
-import { FormattedChartDataPoint, TemperatureUnit } from '../types';
+import { FormattedChartDataPoint, TemperatureUnit } from '../src/types';
 import ThermometerIcon from './icons/ThermometerIcon';
 import RainIcon from './icons/RainIcon';
 import WateringCanIcon from './icons/WateringCanIcon';
@@ -65,7 +65,7 @@ const CombinedWeatherChart: React.FC<CombinedWeatherChartProps> = ({ data, unit 
       <ResponsiveContainer width="100%" height={350}>
         <ComposedChart data={data} margin={{ top: 5, right: 20, left: 0, bottom: 5 }}>
           <CartesianGrid strokeDasharray="4 4" stroke="#e6e6e6" />
-          <XAxis dataKey="name" stroke="#555" interval={0} tick={{ fill: '#555' }} />
+          <XAxis dataKey="name" stroke="#555" interval="preserveStartEnd" tick={{ fill: '#555' }} />
           <YAxis
             yAxisId="left"
             label={{ value: yAxisTempLabel, angle: -90, position: 'insideLeft', fill: '#555', dx: -5 }}
